@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제주 라이다 관리자 페이지</title>
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/modal.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/date_range.js" defer></script>
+    <script src="./js/sec.js" defer></script>
+    <script src="./js/modal.js" defer></script>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- 왼쪽 아이콘 레일 -->
+            <div class="rail">
+                <div class="avatar-mini"></div>
+                <div class="sep"></div>
+                <div class="icon-btn icon icon_1 active"></div>
+                <div class="icon-btn icon icon_2"></div>
+                <div class="icon-btn icon icon_3"></div>
+                <div class="icon-btn icon icon_4"></div>
+                <div class="icon-btn icon icon_5"></div>
+                <div class="icon-btn icon icon_6"></div>
+                <div class="icon-btn icon icon_7"></div>
+            </div>
+
+            <div class="panel">
+                <div class="header">
+                    <div class="avatar"></div>
+                    <div>
+                        <div class="title">관리자 페이지</div>
+                    </div>
+                    <div class="menu">
+                        <img src="./images/icon/icon_menu.png" alt="menu" class="icon-btn icon icon_menu">
+                    </div>
+                </div>
+
+                <div class="section">상태 모니터링</div>
+                <nav class="menu_1">
+                    <a class="item active" href="#">
+                        <div class="icon-btn icon icon_1 active"></div>
+                        <span>RKPC - 제주공항</span>
+                    </a>
+                    <a class="item" href="#">
+                        <div class="icon-btn icon icon_2"></div>
+                        <span>RKSI – 인천공항</span>
+                    </a>
+
+                </nav>
+
+                <div class="section">자료조회</div>
+                <nav class="menu_2">
+                    <a class="item" href="#">
+                        <div class="icon-btn icon icon_3"></div>
+                        <span>수신파일 목록조회</span>
+                    </a>
+                    <a class="item" href="#">
+                        <div class="icon-btn icon icon_4"></div>
+                        <span>장비 자료조회</span>
+                    </a>
+                </nav>
+
+                <div class="section">품질관리</div>
+                <nav class="menu_3">
+                    <a class="item" href="#">
+                        <div class="icon-btn icon icon_5"></div>
+                        <span>수행결과 모니터링</span>
+                    </a>
+                    <a class="item" href="#">
+                        <div class="icon-btn icon icon_6"></div>
+                        <span>자료 수집률 조회</span>
+                    </a>
+                </nav>
+
+                <div class="section">결과 모니터링</div>
+                <nav class="menu_4">
+                    <a class="item" href="#">
+                        <div class="icon-btn icon icon_7"></div>
+                        <span>결과 모니터링</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+
+        <!-- Right area_section_1 -->
+        <div class="sec sec_1">
+            <div class="topbar">
+                <div class="content_title">상태 모니터링</div>
+                <div class="topbar_icon">
+                    <div class="top-ico setting" title="설정">
+                        <img src="./images/icon/setting.png" alt="setting">
+                    </div>
+                    <div class="top-ico alarm" title="알림">
+                        <img src="./images/icon/bell.png" alt="bell"><span class="badge">3</span>
+                    </div>
+                    <div class="top-ico mypage" title="계정">
+                        <img src="./images/icon/person.png" alt="person">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content_button">
+                <button class="btn ghost">RKPC - 제주공항</button>
+                <button class="btn">RKSI – 인천공항</button>
+            </div>
+
+            <main class="main">
+                <section class="page page_1 jeju">
+                    <div class="graph_wrap">
+                        <div class="graph">
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>AMOS</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%;"></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKPC</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>LLWAS</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%; "></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%; "></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKPC</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>WIND_PROFIFLER</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%; "></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKPC</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>LIDAR</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%;"></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKPC</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+
+                <section class="page page_2 inchon" style="display: none;">
+                    <div class="graph_wrap">
+                        <div class="graph">
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>AMOS</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%;"></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKSI</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>LLWAS</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%;"></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKSI</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>WIND_PROFIFLER</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%;"></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKSI</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card_head">
+                                    <div class="card_left">
+                                        <span class="dot" aria-hidden="true"></span>
+                                        <span>LIDAR</span>
+                                    </div>
+                                    <time class="card_time">25/10/20 00:00:00:00</time>
+                                </div>
+                                <div class="card_body">
+                                    <div class="row">
+                                        <label>수집률</label>
+                                        <div class="bar"><i style="width:55%"></i></div>
+                                        <div class="val">55%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>정상율</label>
+                                        <div class="bar"><i style="width:30%;"></i></div>
+                                        <div class="val">30%</div>
+                                    </div>
+                                    <div class="row">
+                                        <label>오류율</label>
+                                        <div class="bar"><i style="width:15%;"></i></div>
+                                        <div class="val">15%</div>
+                                    </div>
+
+                                    <div class="mini">
+                                        <span>공항: RKSI</span>
+                                        <span>활주로: 07</span>
+                                        <span>센서: 182</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="map">
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Right area_section_2 -->
+        <div class="sec sec_2">
+            <div class="topbar">
+                <div class="content_title">자료조회</div>
+                <div class="topbar_icon">
+                    <div class="top-ico setting" title="설정">
+                        <img src="./images/icon/setting.png" alt="setting">
+                    </div>
+                    <div class="top-ico alarm" title="알림">
+                        <img src="./images/icon/bell.png" alt="bell"><span class="badge">1</span>
+                    </div>
+                    <div class="top-ico mypage" title="계정">
+                        <img src="./images/icon/person.png" alt="person">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content_button">
+                <button class="btn ghost">수신파일 목록조회</button>
+                <button class="btn">장비 자료조회</button>
+            </div>
+
+            <main class="main">
+                <section class="page page_1">
+
+                    <div class="toolbar">
+                        <select class="sel">
+                            <option>인천공항</option>
+                            <option>제주공항</option>
+                        </select>
+
+                        <input type="date" class="input daterange" aria-label="daterange" />
+
+                        <button class="btn primary">Search</button>
+
+                        <div class="right-push"></div>
+                        <button class="btn">Export</button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="num">Num</th>
+                                    <th>Date-Code</th>
+                                    <th>Air-Code</th>
+                                    <th>Rout</th>
+                                    <th>Date</th>
+                                    <th>State</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td>AMOS</td>
+                                    <td>RKPC</td>
+                                    <td class="route">/export/amos</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td><span class="state"><span class="x">X</span></span></td>
+                                    <td><span class="chip-download">다운받기</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2</td>
+                                    <td>WIND_PRO</td>
+                                    <td>RKPC</td>
+                                    <td class="route">/export/wind</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td><span class="state"><span class="o">O</span></span></td>
+                                    <td><span class="chip-download">다운받기</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td>LLWAS</td>
+                                    <td>RKPC</td>
+                                    <td class="route">/export/llwas</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td><span class="state"><span class="o">O</span></span></td>
+                                    <td><span class="chip-download">다운받기</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <nav class="pagination" aria-label="Pagination">
+                            <a class="page-btn prev is-disabled" aria-disabled="true" tabindex="-1">Prev</a>
+
+                            <a class="page-btn is-active" aria-current="page">1</a>
+                            <a class="page-btn" href="#2">2</a>
+                            <a class="page-btn" href="#3">3</a>
+                            <span class="page-ellipsis" aria-hidden="true">…</span>
+                            <a class="page-btn" href="#10">10</a>
+
+                            <a class="page-btn next" href="#2">Next</a>
+                        </nav>
+                    </div>
+
+
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+
+                <section class="page page_2" style="display: none;">
+                    <nav class="tabs" aria-label="products">
+                        <button class="tab ghost">AMOS</button>
+                        <button class="tab">LLWAS</button>
+                        <button class="tab">WIND PROFILER</button>
+                        <button class="tab">LIDAR</button>
+                    </nav>
+
+                    <div class="toolbar">
+                        <select class="sel">
+                            <option>인천공항</option>
+                            <option>제주공항</option>
+                        </select>
+
+                        <input type="date" class="input daterange" aria-label="daterange" />
+
+                        <button class="btn primary">Search</button>
+
+                        <div class="right-push"></div>
+
+                        <!-- 1117 -->
+                        <div class="rigth_area">
+                            <p>Element</p>
+                            <button class="btn">Export</button>
+                        </div>
+
+                        <!-- 1117 -->
+                        <div class="element_wrap" style="display: none;">
+                            <div class="element">
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                                <div>
+                                    <input type="checkbox">
+                                    <span>요소1</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="btn_wrap">
+                        <button class="btn active">테이블</button>
+                        <button class="btn">차트</button>
+                    </div>
+
+                    <!-- 1117 구조 변경 -->
+                    <div class="table-wrap">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Num</th>
+                                    <th>수집시각</th>
+                                    <th>풍향(평균)</th>
+                                    <th>풍속(평균)</th>
+                                    <th>풍향(최대)</th>
+                                    <th>풍속(최소)</th>
+                                    <th>풍속(최대)</th>
+                                    <th>풍속(GUST)</th>
+                                    <th>온도</th>
+                                    <th>이슬점</th>
+                                    <th>QNH_HPA</th>
+                                    <th>QNH_INHG</th>
+                                    <th>운고</th>
+                                    <th>가시거리</th>
+                                    <th>가시거리(중앙)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>25/09/05 00:00:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>25/09/05 00:00:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>25/09/05 00:01:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>25/09/05 00:02:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>25/09/05 00:03:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>25/09/05 00:04:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>25/09/05 00:05:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>25/09/05 00:06:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>25/09/05 00:07:00</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>150</td>
+                                    <td>4.9</td>
+                                    <td>4.9</td>
+                                    <td>0.0</td>
+                                    <td>23.2</td>
+                                    <td>21.9</td>
+                                    <td>1005.1</td>
+                                    <td>29.68</td>
+                                    <td>11900</td>
+                                    <td>9800</td>
+                                    <td>NA</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <!-- nav가 table_wrap 안에 있다가 밖으로 나옴 -->
+                    <nav class="pagination" aria-label="Pagination">
+                        <a class="page-btn prev is-disabled" aria-disabled="true" tabindex="-1">Prev</a>
+
+                        <a class="page-btn is-active" aria-current="page">1</a>
+                        <a class="page-btn" href="#2">2</a>
+                        <a class="page-btn" href="#3">3</a>
+                        <span class="page-ellipsis" aria-hidden="true">…</span>
+                        <a class="page-btn" href="#10">10</a>
+
+                        <a class="page-btn next" href="#2">Next</a>
+                    </nav>
+
+                    <div class="chart_wrap" style="display: none;">
+
+                    </div>
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+
+
+            </main>
+        </div>
+
+        <!-- Right area_section_3 -->
+        <div class="sec sec_3">
+            <div class="topbar">
+                <div class="content_title">품질관리</div>
+                <div class="topbar_icon">
+                    <div class="top-ico setting" title="설정">
+                        <img src="./images/icon/setting.png" alt="setting">
+                    </div>
+                    <div class="top-ico alarm" title="알림">
+                        <img src="./images/icon/bell.png" alt="bell"><span class="badge">1</span>
+                    </div>
+                    <div class="top-ico mypage" title="계정">
+                        <img src="./images/icon/person.png" alt="person">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content_button">
+                <button class="btn ghost">수행관리 모니터링</button>
+                <button class="btn">자료 수집률 조회</button>
+            </div>
+
+            <main class="main">
+                <section class="page page_1" style="display: none;">
+
+                    <div class="toolbar" style="margin: 0 0 10px 0;">
+                        <select class="device">
+                            <option>AMOS</option>
+                            <option>LLWAS</option>
+                            <option>WIND_PROFIFLER</option>
+                            <option>LIDAR</option>
+                        </select>
+
+                        <select class="device_states">
+                            <option>전체</option>
+                            <option>정상</option>
+                            <option>의심</option>
+                            <option>결측</option>
+                        </select>
+
+                        <select class="sel">
+                            <option>인천공항</option>
+                            <option>제주공항</option>
+                        </select>
+
+                        <div class="date-range-picker">
+                            <div class="date-range-input dateDisplay">
+                                날짜를 선택하세요
+                            </div>
+                            <span class="dropdown-icon">▼</span>
+
+                            <div class="calendar-popup calendarPopup">
+                                <div class="calendars-container">
+                                    <div class="calendar calendar1"></div>
+                                    <div class="calendar calendar2"></div>
+                                </div>
+
+                                <div class="time-inputs">
+                                    <div class="time-group">
+                                        <label>시작 시간</label>
+                                        <input type="time" class="time-input startTime" value="00:00">
+                                    </div>
+                                    <div class="time-group">
+                                        <label>종료 시간</label>
+                                        <input type="time" class="time-input endTime" value="23:59">
+                                    </div>
+                                </div>
+
+                                <div class="button-group">
+                                    <button class="btn btn-cancel cancelBtn">취소</button>
+                                    <button class="btn btn-apply applyBtn">적용</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn primary">Search</button>
+
+                        <div class="right-push"></div>
+                        <button class="btn">Export</button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="num">Num</th>
+                                    <th>Date</th>
+                                    <th>활주로 Num</th>
+                                    <th>방향</th>
+                                    <th>풍속(순간)</th>
+                                    <th>풍속 <br>
+                                        (3초평균)</th>
+                                    <th>풍속 <br>
+                                        (1분평균)</th>
+                                    <th>풍속 <br>
+                                        (1분최소)</th>
+                                    <th>풍속 <br>
+                                        (1분최대)</th>
+                                    <th>풍속 <br>
+                                        (2분평균)</th>
+                                    <th>풍속 <br>
+                                        (2분최소)</th>
+                                    <th>풍속 <br>
+                                        (2분최대)</th>
+                                    <th>풍속 <br>
+                                        (10분평균)</th>
+                                    <th>풍속 <br>
+                                        (10분최소)</th>
+                                    <th>풍속 <br>
+                                        (10분최대)</th>
+
+                                    <th>풍향(순간)</th>
+                                    <th>풍향 <br>
+                                        (3초평균)</th>
+                                    <th>풍향 <br>
+                                        (1분평균)</th>
+                                    <th>풍향 <br>
+                                        (1분최소)</th>
+                                    <th>풍향 <br>
+                                        (1분최대)</th>
+                                    <th>풍향 <br>
+                                        (2분평균)</th>
+                                    <th>풍향 <br>
+                                        (2분최소)</th>
+                                    <th>풍향 <br>
+                                        (2분최대)</th>
+                                    <th>풍향 <br>
+                                        (10분평균)</th>
+                                    <th>풍향 <br>
+                                        (10분최소)</th>
+                                    <th>풍향 <br>
+                                        (10분최대)</th>
+                                    <th>풍향 <br>
+                                        (2분변동)</th>
+                                    <th>풍향 <br>
+                                        (10분변동)</th>
+
+                                    <th>측풍 <br>
+                                        (2분평균)</th>
+                                    <th>측풍 <br>
+                                        (10분평균)</th>
+
+                                    <th>정배풍 <br>
+                                        (2분평균)</th>
+                                    <th>정배풍 <br>
+                                        (10분평균)</th>
+                                    <th>돌풍 <br>
+                                        (10분평균)</th>
+
+                                    <th>MOR <br>
+                                        (좌측 1분평균)</th>
+                                    <th>MOR <br>
+                                        (좌측 10분평균)</th>
+                                    <th>MOR <br>
+                                        (좌측 10분최소)</th>
+                                    <th>MOR <br>
+                                        (좌측 10분최대)</th>
+
+                                    <th>RVR <br>
+                                        (좌측 1분평균)</th>
+                                    <th>RVR <br>
+                                        (좌측 10분평균)</th>
+                                    <th>RVR <br>
+                                        (좌측 10분최소)</th>
+                                    <th>RVR <br>
+                                        (좌측 10분최대)</th>
+
+                                    <th>현천코드-문자 <br>
+                                        (좌측 순간)</th>
+                                    <th>현천코드-문자 <br>
+                                        (좌측 1분평균)</th>
+
+                                    <th>현천코드-숫자 <br>
+                                        (좌측 순간)</th>
+                                    <th>현천코드-숫자 <br>
+                                        (좌측 1분평균)</th>
+
+                                    <th>수직 시정</th>
+
+                                    <th>운고(1층) <br>
+                                        -좌측</th>
+                                    <th>운고(2층) <br>
+                                        -좌측</th>
+                                    <th>운고(3층) <br>
+                                        -좌측</th>
+
+                                    <th>운형(1층) <br>
+                                        -좌측</th>
+                                    <th>운형(2층) <br>
+                                        -좌측</th>
+                                    <th>운형(3층) <br>
+                                        -좌측</th>
+
+                                    <th>기온</th>
+                                    <th>노점 온도</th>
+                                    <th>습도</th>
+                                    <th>현지기압</th>
+                                    <th>QFE(hPa)</th>
+                                    <th>QNE(hPa)</th>
+                                    <th>QNE(inHg)</th>
+                                    <th>QFF(hPa)</th>
+                                    <th>강수 유무</th>
+
+                                    <th>강수량(1분)</th>
+                                    <th>강수량(10분)</th>
+                                    <th>강수량(30분)</th>
+                                    <th>강수량(1시간)</th>
+                                    <th>강수량(3시간)</th>
+                                    <th>강수량(12시간)</th>
+                                    <th>강수량(1일)</th>
+
+                                    <th>돌풍 <br>
+                                        (2분평균)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">4</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">5</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">6</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">7</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">8</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="num">9</td>
+                                    <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                    <td>1번 활주로</td>
+                                    <td>18</td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                    <td><span class="chip">정상</span></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <nav class="pagination" aria-label="Pagination">
+                            <a class="page-btn prev is-disabled" aria-disabled="true" tabindex="-1">Prev</a>
+
+                            <a class="page-btn is-active" aria-current="page">1</a>
+                            <a class="page-btn" href="#2">2</a>
+                            <a class="page-btn" href="#3">3</a>
+                            <span class="page-ellipsis" aria-hidden="true">…</span>
+                            <a class="page-btn" href="#10">10</a>
+
+                            <a class="page-btn next" href="#2">Next</a>
+                        </nav>
+                    </div>
+
+
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+
+                <section class="page page_2">
+                    <div class="toolbar" style="margin: 0 0 10px 0;">
+                        <select class="device">
+                            <option>AMOS</option>
+                            <option>LLWAS</option>
+                            <option>WIND_PROFIFLER</option>
+                            <option>LIDAR</option>
+                        </select>
+
+                        <select class="sel">
+                            <option>인천공항</option>
+                            <option>제주공항</option>
+                        </select>
+
+                        <div class="date-range-picker">
+                            <div class="date-range-input dateDisplay">
+                                날짜를 선택하세요
+                            </div>
+                            <span class="dropdown-icon">▼</span>
+
+                            <div class="calendar-popup calendarPopup">
+                                <div class="calendars-container">
+                                    <div class="calendar calendar1"></div>
+                                    <div class="calendar calendar2"></div>
+                                </div>
+
+                                <div class="time-inputs">
+                                    <div class="time-group">
+                                        <label>시작 시간</label>
+                                        <input type="time" class="time-input startTime" value="00:00">
+                                    </div>
+                                    <div class="time-group">
+                                        <label>종료 시간</label>
+                                        <input type="time" class="time-input endTime" value="23:59">
+                                    </div>
+                                </div>
+
+                                <div class="button-group">
+                                    <button class="btn btn-cancel cancelBtn">취소</button>
+                                    <button class="btn btn-apply applyBtn">적용</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <butt on class="btn primary">Search</button> -->
+
+                        <!-- <button class="btn">Export</button> -->
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>요소 </th>
+                                    <th>검사 분류</th>
+                                    <th>자료 수집률</th>
+                                    <th>정상 자료율</th>
+                                    <th>오류 자료율</th>
+                                    <th>의심.기준값 누락율</th>
+                                    <th>결측 자료율</th>
+                                    <th>조회 기간</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>풍속(3초평균) </td>
+                                    <td>물리한계 검사</td>
+                                    <td><span class="date_rate">100% (961/960)</span></td>
+                                    <td><span class="normal_rate">100.00% (961/961)</span></td>
+                                    <td><span class="error_rate">0.00% (0/961)</span></td>
+                                    <td><span class="omission_rate">0.00% (0/961)</span></td>
+                                    <td><span class="null_value_rate">0.00% (0/961)</span></td>
+                                    <td class="check_date">25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span> ~ 25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>풍속(3초평균) </td>
+                                    <td>물리한계 검사</td>
+                                    <td><span class="date_rate">100% (961/960)</span></td>
+                                    <td><span class="normal_rate">100.00% (961/961)</span></td>
+                                    <td><span class="error_rate">0.00% (0/961)</span></td>
+                                    <td><span class="omission_rate">0.00% (0/961)</span></td>
+                                    <td><span class="null_value_rate">0.00% (0/961)</span></td>
+                                    <td class="check_date">25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span> ~ 25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>풍속(3초평균) </td>
+                                    <td>물리한계 검사</td>
+                                    <td><span class="date_rate">100% (961/960)</span></td>
+                                    <td><span class="normal_rate">100.00% (961/961)</span></td>
+                                    <td><span class="error_rate">0.00% (0/961)</span></td>
+                                    <td><span class="omission_rate">0.00% (0/961)</span></td>
+                                    <td><span class="null_value_rate">0.00% (0/961)</span></td>
+                                    <td class="check_date">25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span> ~ 25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>풍속(3초평균) </td>
+                                    <td>물리한계 검사</td>
+                                    <td><span class="date_rate">100% (961/960)</span></td>
+                                    <td><span class="normal_rate">100.00% (961/961)</span></td>
+                                    <td><span class="error_rate">0.00% (0/961)</span></td>
+                                    <td><span class="omission_rate">0.00% (0/961)</span></td>
+                                    <td><span class="null_value_rate">0.00% (0/961)</span></td>
+                                    <td class="check_date">25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span> ~ 25/08/26<span
+                                            style="color:var(--muted); margin-left: 10px;">11:00</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <nav class="pagination" aria-label="Pagination">
+                            <a class="page-btn prev is-disabled" aria-disabled="true" tabindex="-1">Prev</a>
+
+                            <a class="page-btn is-active" aria-current="page">1</a>
+                            <a class="page-btn" href="#2">2</a>
+                            <a class="page-btn" href="#3">3</a>
+                            <span class="page-ellipsis" aria-hidden="true">…</span>
+                            <a class="page-btn" href="#10">10</a>
+
+                            <a class="page-btn next" href="#2">Next</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Right area_section_4 -->
+        <div class="sec sec_4">
+            <div class="topbar">
+                <div class="content_title">품질관리</div>
+                <div class="topbar_icon">
+                    <div class="top-ico setting" title="설정">
+                        <img src="./images/icon/setting.png" alt="setting">
+                    </div>
+                    <div class="top-ico alarm" title="알림">
+                        <img src="./images/icon/bell.png" alt="bell"><span class="badge">1</span>
+                    </div>
+                    <div class="top-ico mypage" title="계정">
+                        <img src="./images/icon/person.png" alt="person">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content_button">
+                <button class="btn ghost">결과 모니터링</button>
+            </div>
+
+            <main class="main">
+                <section class="page page_1">
+
+                    <div class="toolbar" style="margin: 0 0 10px;">
+                        <select class="sel">
+                            <option>인천공항</option>
+                            <option>제주공항</option>
+                        </select>
+
+                        <div class="right-push"></div>
+                        <button class="btn">Export</button>
+                    </div>
+
+                    <div class="result_wrap">
+                        <div class="table-wrap" style="width: 49.5%;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="num">PID</th>
+                                        <th>명칭</th>
+                                        <th>상태</th>
+                                        <th>최종작동 일자</th>
+                                        <th>Reset</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr class="active">
+                                        <td class="num">1</td>
+                                        <td>AMOS</td>
+                                        <td>RKPC</td>
+                                        <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span>
+                                        </td>
+                                        <td><a href="#"><img src="./images/icon/icon_reset.png" alt="reset"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="num">2</td>
+                                        <td>WIND</td>
+                                        <td>RKPC</td>
+                                        <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span>
+                                        </td>
+                                        <td><a href="#"><img src="./images/icon/icon_reset.png" alt="reset"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="num">3</td>
+                                        <td>LLWAS</td>
+                                        <td>RKPC</td>
+                                        <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span>
+                                        </td>
+                                        <td><a href="#"><img src="./images/icon/icon_reset.png" alt="reset"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="num">4</td>
+                                        <td>FILE</td>
+                                        <td>RKPC</td>
+                                        <td>25/08/26<span style="color:var(--muted); margin-left: 10px;">11:00</span>
+                                        </td>
+                                        <td><a href="#"><img src="./images/icon/icon_reset.png" alt="reset"></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="width: 49.5%;height: 100%;">
+                            <div class="toolbar" style="justify-content: space-between;border: none;">
+                                <div class="result_toolbar">
+                                    <div>
+                                        <span>표출수</span>
+                                        <select class="sel" style="min-width: 80px;">
+                                            <option>100</option>
+                                            <option>150</option>
+                                            <option>200</option>
+                                            <option>250</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="date-range-picker">
+                                        <div class="date-range-input dateDisplay">
+                                            날짜를 선택하세요
+                                        </div>
+                                        <span class="dropdown-icon">▼</span>
+
+                                        <div class="calendar-popup calendarPopup">
+                                            <div class="calendars-container">
+                                                <div class="calendar calendar1"></div>
+                                                <div class="calendar calendar2"></div>
+                                            </div>
+
+                                            <div class="time-inputs">
+                                                <div class="time-group">
+                                                    <label>시작 시간</label>
+                                                    <input type="time" class="time-input startTime" value="00:00">
+                                                </div>
+                                                <div class="time-group">
+                                                    <label>종료 시간</label>
+                                                    <input type="time" class="time-input endTime" value="23:59">
+                                                </div>
+                                            </div>
+
+                                            <div class="button-group">
+                                                <button class="btn btn-cancel cancelBtn">취소</button>
+                                                <button class="btn btn-apply applyBtn">적용</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="result_check">
+                                        <input type="checkbox">
+                                        <span>실시간 로그</span>
+                                    </div>
+                                </div>
+
+                                <button class="btn primary">Search</button>
+                            </div>
+                            <div class="result_main_content">
+                                <ul>
+                                    <li>dkfjsflkjdsklfj</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+                                    <li>skfjslkfjsdklfjl</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="footer">2025 © Velex. Crafted by</div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal setting_modal">
+        <div class="modal-item" data-action="1">설정</div>
+    </div>
+
+    <div class="modal alarm_modal">
+        <div class="modal-item" data-message="1">경고/안내 메세지</div>
+        <div class="modal-item" data-message="2">경고/안내 메세지</div>
+        <div class="modal-item" data-message="3">경고/안내 메세지</div>
+    </div>
+
+    <div class="modal mypage_modal">
+        <div class="modal-header">admin 님</div>
+        <div class="modal-item" data-action="mypage">마이페이지</div>
+        <div class="modal-item" data-action="logout">로그아웃</div>
+    </div>
+</body>
+
+</html>

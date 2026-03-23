@@ -1,0 +1,110 @@
+.modal {
+    display: none;
+    position: absolute;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 120px;
+    overflow: hidden;
+}
+
+.modal-item {
+    padding: 16px 24px;
+    color: #333;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-item:last-child {
+     border-bottom: none;
+}
+
+.modal-item:hover {
+    background: #f5f5f5;
+}
+
+.modal-item:active {
+    background: #e8e8e8;
+}
+
+/* ---------------setting 모달--------------------- */
+.setting_modal {
+    top: 50px;
+    right: 85px;
+}
+
+.setting_modal.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+
+/* -----------------------알람 모달 스타일-------------------- */
+.alarm_modal {
+    top: 50px;
+    right: 20px;
+}
+
+.alarm_modal.active {
+   display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.alarm_modal .modal-item {
+    border-left: 4px solid #4CAF50;
+}
+
+.alarm_modal .modal-item:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* 모달 오버레이 */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+/* -----------------------마이페이지 모달 스타일-------------------- */
+.mypage_modal {
+    top: 50px;
+    right: 20px;
+    min-width: 150px;
+}
+
+.mypage_modal.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.mypage_modal .modal-header {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.mypage_modal .modal-item:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
